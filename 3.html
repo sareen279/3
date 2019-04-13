@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>
+		Registration Form
+		</title>
+		<script>
+			function val()
+			{
+				var n = document.f1.name.value;
+				var a = document.f1.age.value;
+				var p = document.f1.phone.value;
+				var m = document.f1.mail.value;
+				var atpos = m.indexOf('@');
+				var dotpos = m.lastIndexOf('.');
+				var sppos = m.indexOf(' ');
+				if(n == "" || a == "" || p == "" || m == "")
+				{
+					alert("Please enter all the fields");
+					return false;
+				}
+				if(isNaN(p) || (p.length != 10))
+				{
+					alert("Please enter valid Phone number");
+					return false;
+				}
+				if(atpos < 1 || dotpos < 1 || sppos != -1 || (dotpos-atpos) < 2 || (m.length-dotpos) < 2)
+				{
+					alert("Please enter valid E-mail address");
+					return false;
+				}
+				else
+				{
+					alert("Success");
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action = "success.html" onsubmit = "return(val())" name = "f1">
+			<table>
+				<tr>
+					<td>
+						Name -
+					</td>
+					<td>
+						<input type = "text" name = "name">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Age -
+					</td>
+					<td>
+						<input type = "number" name = "age">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Phone -
+					</td>
+					<td>
+						<input type = "text" name = "phone">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						E-mail -
+					</td>
+					<td>
+						<input type = "text" name = "mail">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type = "submit" value = "register">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
